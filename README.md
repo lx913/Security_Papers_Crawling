@@ -19,13 +19,13 @@ python *_Crawling [-C --conference] [-F --save_folder] [-K --keywords]
 
 necessary arguments:
 
--C, --conference      which conference you want to crawl
+**-C, --conference**:      which conference you want to crawl
 
 optional arguments:
 
--F, --save_floder     where papers downloaded, default: paper/
+**-F, --save_floder**:     where papers downloaded, default: paper/
 
--K, --keywords        keywords you want papers include, default: None
+**-K, --keywords**:        keywords you want papers include, default: None
 
 ## Limitation
 - Sensitive to Conference
