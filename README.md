@@ -14,6 +14,10 @@ We use new bing to help us code.
 
 我用new bing辅助写的爬虫
 
+## Implement
+python dblp_crawler -h
+usage: __main__.py [-h] [-y YEAR] -k KEYWORD [-p PID] [-j JOURNAL] {networkx,neo4j} ...
+
 ## Limitation
 - Sensitive to Conference
 - Sensitive to Web Layout
