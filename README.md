@@ -15,12 +15,19 @@ We use new bing to help us code.
 我用new bing辅助写的爬虫
 
 ## Implement
-python dblp_crawler -h
-usage: __main__.py [-h] [-y YEAR] -k KEYWORD [-p PID] [-j JOURNAL] {networkx,neo4j} ...
+python *_Crawling [-C --conference] [-F --save_folder] [-K --keywords]
+
+necessary arguments:
+-C, --conference      which conference you want to crawl
+
+optional arguments:
+-F, --save_floder     where papers downloaded, default: paper/
+-K, --keywords        keywords you want papers include, default: None
 
 ## Limitation
 - Sensitive to Conference
 - Sensitive to Web Layout
+- Keywords only support the list of single word, like [membership, adversarial] (will support like [membership inference, adversarial attack] in the future)
 
 ## Version
 - 0.1 For CCS2022 only
