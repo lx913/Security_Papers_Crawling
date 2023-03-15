@@ -33,4 +33,5 @@ optional arguments:
 - Keywords only support the list of single word, like [membership, adversarial] (will support like [membership inference, adversarial attack] in the future)
 
 ## Version
-- 0.1 For CCS2022 only
+- 0.2 (2023.3.15) For All CCS
+- 0.1 (2023.3.15) For CCS2022 only
