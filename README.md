@@ -15,11 +15,13 @@ We use new bing to help us code.
 我用new bing辅助写的爬虫
 
 ## Implement
-python *_Crawling.py [-C --conference] [-F --save_folder] [-K --keywords]
+python *_Crawling.py [-C --conference] [-Y --year] [-F --save_folder] [-K --keywords]
 
 necessary arguments:
 
 **-C, --conference**:      which conference you want to crawl
+
+**-Y, --year**:            which year you want to crawl
 
 optional arguments:
 
