@@ -15,7 +15,7 @@ We use new bing to help us code.
 我用new bing辅助写的爬虫
 
 ## Limitation
-- Sensitive to conference
+- Sensitive to Conference
 - Sensitive to Web Layout
 
 ## Version
