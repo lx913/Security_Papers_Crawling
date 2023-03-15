@@ -7,35 +7,48 @@ import re
 import time
 import argparse
 
-url = {'CCS22':'https://www.sigsac.org//ccs//CCS2022//proceedings//ccs-proceedings.html',}
+conference_support = ["ccs"]
+url = {'dblp':'https://dblp.org/db/conf/',}
 
-def Crawling(conference = None, save_folder = 'paper/', keywords= None):
+def Crawling(conference = None, year = None, save_folder = 'paper/', keywords= None):
     if conference == None:
         print('Please choose conference!')
         return
-    if conference not in url:
+    if conference not in conference_support:
         print('Conference not support!')
         return
-
+    if year == None:
+        print('Please choose year!')
+        return
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
 
-    c_url = url[conference]
+    dblp = url["dblp"]
+    c_url = dblp + conference + '/' + conference+year +'.html'
+    # https://dblp.org/db/conf/ccs/ccs2022.html
 
     #crawling html elements
     response = requests.get(c_url, verify=False)
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
 
-    # CCS22 paper tag
-    papers = soup.find_all("a", class_="DLtitleLink")
+    # all href
+    papers = soup.find_all("a",href=lambda x: x and re.search(r"doi\.org/10\.1145/\d{7}\.\d{7}", x))
+
+    # all doi, including keynote
+    pdf_links = []
+    pattern = r"doi\.org/(.+)"
+
+    for paper in papers:
+        pdf_link = paper.get("href")
+        match_res = 'https://dl.acm.org/doi/pdf/' + re.search(pattern, pdf_link).group(1)
+        if match_res not in pdf_links:
+            pdf_links.append(match_res)
 
     if keywords == None:
         print("No Keywords, Download All Papers")
 
-    for paper in papers:
-        pdf_link = paper.get("href")
-        pdf_link = pdf_link.replace("doi/", "doi/pdf/")
+    for pdf_link in pdf_links:
         print(pdf_link)
         pdf_response = requests.get(pdf_link)
         pdf_data = pdf_response.content
@@ -76,11 +89,11 @@ def Crawling(conference = None, save_folder = 'paper/', keywords= None):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-C', '--conference', default='CCS22', help="conference for crawling")
+    parser.add_argument('-C', '--conference', default='ccs', help="conference for crawling")
+    parser.add_argument('-Y', '--year', default='2022', help="year for crawling")
     parser.add_argument('-F', '--save_folder', default="paper/", help="where paper saved")
     parser.add_argument('-K', '--keywords', default=None, nargs='+', help="Key words you want")
 
     args = parser.parse_args()
 
-    print(args.keywords)
-    Crawling(args.conference,args.save_folder,args.keywords)
+    Crawling(args.conference,args.year,args.save_folder,args.keywords)
