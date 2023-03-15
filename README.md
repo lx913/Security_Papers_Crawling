@@ -16,7 +16,8 @@ We use new bing to help us code.
 
 ## Implement
 python *_Crawling.py [-C --conference] [-Y --year] [-F --save_folder] [-K --keywords]
-example: **python CCS_Crawling.py -C ccs -Y 2022 -F paper/ -K adversarial**
+
+example: **<u>python CCS_Crawling.py -C ccs -Y 2022 -F paper/ -K adversarial</u>**
 
 necessary arguments:
 
