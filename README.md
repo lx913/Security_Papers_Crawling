@@ -1,6 +1,6 @@
 # Security_Papers_Crawling
 ## Introduction
-In this repo, we realize a crawler to crawl papers in S&P/CCS/USENIX Security/NDSS for reading papers in the security field according to the keywords given.
+In this repo, we realize a crawler to crawl papers in S&P/CCS/USENIX Security/NDSS for reading papers in the security field according to the given keywords.
 
 在本仓库，我们实现了一个根据给定关键词来爬取安全四大会论文的爬虫。
 
