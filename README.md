@@ -32,10 +32,10 @@ optional arguments:
 **-K, --keywords**:        keywords you want papers include, default: None
 
 ## Limitation
-- Sensitive to Conference
-- Sensitive to Web Layout
+- Sensitive to Conference (This crawler may not work for another conferences)
 - Keywords only support the list of single word, like [membership, adversarial] (will support like [membership inference, adversarial attack] in the future)
 
 ## Version
+- 0.3 (2023.3.28) For All S&P, and papers downloaed are renamed to their titles.
 - 0.2 (2023.3.15) For All CCS
 - 0.1 (2023.3.15) For CCS2022 only
